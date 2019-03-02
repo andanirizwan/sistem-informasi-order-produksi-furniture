@@ -103,7 +103,8 @@ class PoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $po = Po::all()->where('id', '=', $id);
+        return view('edit_po',['po'=>$po]);
     }
 
     /**
@@ -115,7 +116,30 @@ class PoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='buyer') {
+                    
+            $this->validate($request,[
+                'file' => 'mimes:pdf'
+            ]);
+
+            //upload
+            $name_po = $request->no_po .'.pdf';
+            $request->file('file_po')->storeAs('public/po', $name_po);
+
+            $po = Po::find($id);
+            $po->no_po = $request->no_po;
+            $po->pengiriman = $request->pengiriman;
+            $po->file_po = $name_po;
+            $po->buyer_id = Auth::user()->id;
+            $po->save();
+
+            return redirect('/po');
+           
+        }
+        
+        return redirect('dashboard');
     }
 
     /**

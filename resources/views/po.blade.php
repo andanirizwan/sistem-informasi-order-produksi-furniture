@@ -13,6 +13,7 @@
             <th>Buyer</th>
             <th>File</th>
             <th>Jadwal Pengiriman</th> 
+            <th>Edit</th> 
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
             <td>{{ $po1->buyer->username }}</td>           
             <td><a type="button" class="btn btn-info" href="po/{{ $po1->file_po}}"> {{ $po1->file_po }} <i class="la la-download"> </i></a> </td>
             <td>{{ $po1->pengiriman }}</td>
+            <td><a type="button" class="btn btn-info" href="po/{{ $po1->id}}/edit"><i class="la la-edit"></i></a></td>
         </tr>
 
         @endforeach

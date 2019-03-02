@@ -104,7 +104,8 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $invoice = Invoice::all()->where('id', '=', $id);
+        return view('edit_invoice',['invoice'=>$invoice]);
     }
 
     /**
