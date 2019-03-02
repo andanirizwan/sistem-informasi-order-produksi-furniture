@@ -26,7 +26,7 @@ class LaporanController extends Controller
             $laporan = Laporan::all()->where('buyer_id', '=', $id);
             return view('laporan', ['laporan'=>$laporan]);
         }
-
+        
         $laporan = Laporan::all();
         return view('laporan', ['laporan'=>$laporan]);
 

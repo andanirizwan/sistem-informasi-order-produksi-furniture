@@ -29,7 +29,7 @@
             <td>1.</td>
             <td>{{ $spk1->no_spk}}</td>           
             <td>{{ $spk1->buyer->username}}</td>
-            <td><a href="#" type="button" class="btn">{{ $spk1->barang->nama}}</a></td>
+            <td>{{ $spk1->barang->nama}}</td>
             <td>{{ $spk1->qty}}</td> 
             <td>{{ $spk1->keterangan}}</td>
             <td>{{ $spk1->pengiriman}}</td> 

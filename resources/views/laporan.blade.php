@@ -52,14 +52,40 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        Donec non lectus nec est porta eleifend. Morbi ut dictum augue, feugiat condimentum est. Pellentesque tincidunt justo nec aliquet tincidunt. Integer dapibus tellus non neque pulvinar mollis. Maecenas dictum laoreet diam, non convallis lorem sagittis nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc venenatis lacus arcu, nec ultricies dui vehicula vitae.
-                    </p>
+                        <table id="table" class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>No SPK</th>
+                                        <th>Nama Buyer</th>
+                                        <th>Barang</th> 
+                                        <th>Qty</th>
+                                        <th>Keterangan</th>
+                                        <th>Jadwal Pengiriman</th> 
+                                        <th>Status</th> 
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($laporan as $laporan1)
+                                        
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>{{ $laporan1->spk->no_spk}}</td>           
+                                        <td>{{ $laporan1->buyer->username}}</td>
+                                        {{-- <td><a href="#" type="button" class="btn">{{ $laporan1->barang->nama}}</a></td> --}}
+                                        <td>{{ $laporan1->spk->qty}}</td> 
+                                        <td>{{ $laporan1->spk->keterangan}}</td>
+                                        <td>{{ $laporan1->spk->pengiriman}}</td> 
+                                        <td><button class="btn btn-info">{{ $laporan1->spk->status}}</button></td>
+                                       
+                                    </tr>
+                            
+                                    @endforeach
+                                </tbody>
+                            </table>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
+
             </div>
         </div>
     </div>
