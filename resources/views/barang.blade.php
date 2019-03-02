@@ -14,6 +14,7 @@
             <th>Foto</th>
             <th>Ukuran</th>
             <th>Material</th> 
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -25,9 +26,10 @@
         <tr>
             <td>{{$no++}}</td>
             <td>{{ $barang1->nama}}</td>           
-            <td><img src="{{asset('storage/barang/'.$barang1->foto)}}" alt="" width="50px"></td>
+            <td><img src="{{asset('storage/barang/'.$barang1->foto)}}" alt="" width="100px"></td>
             <td>{{ $barang1->ukuran}}</td>
             <td>{{ $barang1->material}}</td>
+            <td><a type="button" class="btn btn-primary" href="barang/{{ $barang1->id}}/edit"><i class="la la-edit"></i></a></td>
         </tr>
 
         @endforeach

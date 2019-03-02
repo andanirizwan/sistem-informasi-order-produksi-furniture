@@ -96,7 +96,14 @@ class SpkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='data') {
+            $spk = Spk::all()->where('id', '=', $id);
+            return view('edit_spk',['spk'=>$spk]);
+        }
+        
+        return redirect('dashboard');
     }
 
     /**
@@ -108,7 +115,33 @@ class SpkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='data') {
+                    
+            // $this->validate($request,[
+            //     'file' => 'mimes:jpg,jpeg,png|max:2000'
+            // ]);
+
+            //upload
+            // $name_po = $request->no_po .'.pdf';
+            // $request->file('file_po')->storeAs('public/po', $name_po);
+
+            $spk = Spk::find($id);
+            $spk->no_spk = $request->no_spk;
+            $spk->qty = $request->qty;
+            $spk->keterangan = $request->keterangan;
+            $spk->pengiriman = $request->pengiriman;
+            $spk->stock = $request->stock;
+            $spk->barang_id = $request->barang_id;
+            $spk->buyer_id = $request->buyer_id;
+            $spk->save();
+
+            return redirect('/spk');
+           
+        }
+        
+        return redirect('dashboard');
     }
 
     /**

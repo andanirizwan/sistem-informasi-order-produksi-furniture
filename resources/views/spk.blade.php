@@ -17,6 +17,9 @@
             <th>Keterangan</th>
             <th>Jadwal Pengiriman</th> 
             <th>Status</th> 
+            @if (Auth::user()->role == 'data')
+            <th>Action</th> 
+            @endif
         </tr>
     </thead>
     <tbody>
@@ -29,8 +32,11 @@
             <td><a href="#" type="button" class="btn">{{ $spk1->barang->nama}}</a></td>
             <td>{{ $spk1->qty}}</td> 
             <td>{{ $spk1->keterangan}}</td>
-            <td>{{ $spk1->pengiriman}}</td>
-            <td><button class="btn btn-info">{{ $spk1->status}}</button></td>  
+            <td>{{ $spk1->pengiriman}}</td> 
+            <td><button class="btn btn-info">{{ $spk1->status}}</button></td>
+            @if (Auth::user()->role == 'data')
+            <td><a href="spk/{{ $spk1->id}}/edit" type="button" class="btn"> <i class="la la-edit"></i> </a></td>
+            @endif  
         </tr>
 
         @endforeach

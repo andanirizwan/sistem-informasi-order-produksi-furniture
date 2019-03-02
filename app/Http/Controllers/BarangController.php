@@ -90,7 +90,14 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='data') {
+            $barang = Barang::all()->where('id', '=', $id);
+            return view('edit_barang',['barang'=>$barang]);
+        }
+        
+        return redirect('dashboard');
     }
 
     /**
@@ -102,7 +109,31 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='data') {
+                    
+            $this->validate($request,[
+                'file' => 'mimes:jpg,jpeg,png|max:2000'
+            ]);
+
+            //upload
+            $name_barang = time() .'.jpg';
+            $request->file('file_foto')->storeAs('public/barang', $name_barang);
+
+            $barang = Barang::find($id);
+            $barang->nama = $request->nama;
+            $barang->foto = $name_barang;
+            $barang->ukuran = $request->ukuran;
+            $barang->material = $request->material;
+
+            $barang->save();
+
+            return redirect('/barang');
+           
+        }
+        
+        return redirect('dashboard');
     }
 
     /**

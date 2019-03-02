@@ -17,8 +17,14 @@ class AkunController extends Controller
      */
     public function index()
     {
+        $auth=Auth::user()->role;
+
+        if ($auth=='admin') {
+                    
         $user = User::all();
         return view('user', ['user'=>$user]);
+        }
+         redirect('dashboard');
     }
 
     /**
@@ -83,7 +89,8 @@ class AkunController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::all()->where('id', '=', $id);
+        return view('edit_user',['user'=>$user]);
     }
 
     /**
@@ -95,7 +102,22 @@ class AkunController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='admin') {
+                    
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->role = $request->role;
+
+            $user->save();
+
+            return redirect('/akun');
+           
+        }
+        
+        return redirect('dashboard');
     }
 
     /**

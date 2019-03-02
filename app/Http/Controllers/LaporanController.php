@@ -106,7 +106,14 @@ class LaporanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $auth=Auth::user()->role;
+
+        if ($auth=='exim') {
+            $laporan = Laporan::all()->where('id', '=', $id);
+            return view('edit_laporan',['laporan'=>$laporan]);
+        }
+        
+        return redirect('dashboard');
     }
 
     /**

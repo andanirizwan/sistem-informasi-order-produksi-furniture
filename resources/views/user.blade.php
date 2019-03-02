@@ -26,8 +26,9 @@
             <td>{{$no++}}</td>
             <td>{{ $user1->name}}</td>           
             <td>{{ $user1->email}}</td>
-            <td>{{ $user1->role}}</td>           
-            <td><a href="{{ $user1->id}}" type="button" class="btn btn-info">Edit</a></td>
+            <td>{{ $user1->role}}</td>
+            <td><a href="akun/{{$user1->id}}/edit" type="button" class="btn btn-info">Edit</a></td>         
+            
         </tr>
 
         @endforeach

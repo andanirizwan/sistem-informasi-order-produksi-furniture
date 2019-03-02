@@ -15,6 +15,7 @@
             <th>Nama buyer</th>
             <th>Jadwal Pengiriman</th> 
             <th>Status</th>
+            @if (Auth::user()->role == 'exim')<th>action</th>@endif
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,10 @@
             <td>{{ $laporan1->buyer->username }}</td>
             <td>{{ $laporan1->pengiriman }}</td>
             <td><button class="btn btn-info">{{ $laporan1->status }}</button></td>
+            @if (Auth::user()->role == 'exim')
+            <td><a type="button" class="btn btn-primary" href="laporan/{{$laporan1->id}}/edit"><i class="la la-edit"></i></a></td>    
+            @endif
+            
         </tr>
 
         @endforeach

@@ -146,9 +146,11 @@ Author: SAEROX
                                 <ul id="dropdown1" class="collapse list-unstyled pt-0">
                                     <li><a href="/akun">Lihat</a></li>
                                     <li><a href="/akun/create">Tambah</a></li>
+                                    <li><a href="/profile/password">change Password</a></li>
                                 </ul>
                             </li>
                             <li><a href="/buyer"><i class="la la-user"></i><span>Buyer</span></a></li>
+
                         </ul>
                         @elseif((Auth::user()->role == 'data'))
                         <ul class="list-unstyled">
@@ -167,7 +169,7 @@ Author: SAEROX
                             </li>
                             <li><a href="#dropdown2" aria-expanded="false" data-toggle="collapse"><i class="la la-user"></i><span>Account</span></a>
                                 <ul id="dropdown2" class="collapse list-unstyled pt-0">
-                                    <li><a href="/akun/password">change Password</a></li>
+                                    <li><a href="/profile/password">change Password</a></li>
                                 </ul>
                             </li>
 
@@ -189,7 +191,7 @@ Author: SAEROX
                             </li>
                             <li><a href="#dropdown2" aria-expanded="false" data-toggle="collapse"><i class="la la-user"></i><span>Account</span></a>
                                 <ul id="dropdown2" class="collapse list-unstyled pt-0">
-                                    <li><a href="/akun/password">change Password</a></li>
+                                    <li><a href="/profile/password">change Password</a></li>
                                 </ul>
                             </li>
 
