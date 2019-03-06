@@ -64,6 +64,24 @@
             <input type="date" name="pengiriman" class="form-control" value="{{$spk1->pengiriman}}" required>
         </div>
     </div>
+    <div class="form-group row d-flex align-items-center mb-5">
+            <label class="col-md-3 form-control-label">Pengiriman</label>
+            <div class="col-md-5">
+                <input type="date" name="pengiriman" class="form-control" value="{{$spk1->pengiriman}}" required>
+            </div>
+    </div>
+    <div class="form-group row d-flex align-items-center mb-5">
+            <label class="col-md-3 form-control-label">Status</label>
+            <div class="col-md-5">
+                <select name="status" class="form-control">
+                    <option value="">pilih</option>
+                    
+                        <option value="proses">proses</option>
+                        <option value="terkirim">terkirim</option>
+                    
+                </select>
+            </div>
+    </div>
 @endforeach
 
     @csrf

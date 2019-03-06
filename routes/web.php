@@ -29,7 +29,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('akun', 'akunController');
     Route::resource('buyer', 'BuyerController');
     
-    
 });
 
 

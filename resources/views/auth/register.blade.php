@@ -5,7 +5,7 @@
  <div class="authentication-form mx-auto">
     <div class="logo-centered">
         <a href="db-default.html">
-            <img src="assets/img/logo.png" alt="logo">
+            <img src="{{asset('assets/img/preloader-sidof.png')}}" alt="logo">
         </a>
     </div>
     <h3>Create An Account</h3>

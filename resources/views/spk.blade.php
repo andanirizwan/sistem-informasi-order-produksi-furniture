@@ -23,10 +23,13 @@
         </tr>
     </thead>
     <tbody>
+        @php
+            $no=1
+        @endphp
         @foreach ($spk as $spk1)
             
         <tr>
-            <td>1.</td>
+            <td>{{$no++}}</td>
             <td>{{ $spk1->no_spk}}</td>           
             <td>{{ $spk1->buyer->username}}</td>
             <td>{{ $spk1->barang->nama}}</td>

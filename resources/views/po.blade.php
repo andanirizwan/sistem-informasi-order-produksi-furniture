@@ -25,7 +25,7 @@
         <tr>
             <td>{{$no++}}</td>
             <td>{{ $po1->buyer->username }}</td>           
-            <td><a type="button" class="btn btn-info" href="po/{{ $po1->file_po}}"> {{ $po1->file_po }} <i class="la la-download"> </i></a> </td>
+            <td><a type="button" class="btn btn-info" href="{{asset('storage/po/'.$po1->file_po)}}"> {{ $po1->file_po }} <i class="la la-download"> </i></a> </td>
             <td>{{ $po1->pengiriman }}</td>
             <td><a type="button" class="btn btn-info" href="po/{{ $po1->id}}/edit"><i class="la la-edit"></i></a></td>
         </tr>

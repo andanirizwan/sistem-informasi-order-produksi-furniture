@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 use App\Po;
+use App\buyer;
 
 class PoController extends Controller
 {
@@ -22,7 +23,7 @@ class PoController extends Controller
 
         if ($auth=='buyer') {
             $id= Auth::user()->id;
-            $po = Po::all()->where('buyer_id', '=', $id);
+            $po = Po::all()->where('users_id', '=', $id);
             return view('po', ['po'=>$po]);
         }
 
@@ -42,7 +43,9 @@ class PoController extends Controller
         $auth=Auth::user()->role;
 
         if ($auth=='buyer') {
-            return view('create_po');
+            $id= Auth::user()->id;
+            $buyer = buyer::all()->where('users_id', '=', $id);
+            return view('create_po',['buyer'=>$buyer]);
         }
         
         return redirect('dashboard');
@@ -67,12 +70,13 @@ class PoController extends Controller
             //upload
             $name_po = $request->no_po .'.pdf';
             $request->file('file_po')->storeAs('public/po', $name_po);
+            
 
             $po = new Po;
             $po->no_po = $request->no_po;
             $po->pengiriman = $request->pengiriman;
             $po->file_po = $name_po;
-            $po->buyer_id = Auth::user()->id;
+            $po->buyer_id = $request->buyer;
             $po->save();
 
             return redirect('/po');
@@ -90,9 +94,18 @@ class PoController extends Controller
      */
     public function show($id)
     {
+        $url = Storage::get('po/'.$id);
+        dd($url);
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+        $download = Storage::download($url, $id, $headers);
+        
+    }
+    public function download($id)
+    {
 
-        $path= Storage::download($id);
-        return response()->download($path);
+      //
     }
 
     /**

@@ -66,8 +66,10 @@ class SpkController extends Controller
             $spk->keterangan = $request->keterangan;
             $spk->pengiriman = $request->pengiriman;
             $spk->stock = $request->stock;
+            $spk->produksi = $request->produksi;
             $spk->barang_id = $request->barang_id;
             $spk->buyer_id = $request->buyer_id;
+            $spk->status = 'proses';
             $spk->save();
 
             return redirect('/spk');
@@ -135,6 +137,7 @@ class SpkController extends Controller
             $spk->stock = $request->stock;
             $spk->barang_id = $request->barang_id;
             $spk->buyer_id = $request->buyer_id;
+            $spk->status = $request->status;
             $spk->save();
 
             return redirect('/spk');

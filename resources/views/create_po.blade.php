@@ -8,6 +8,10 @@
     </div>
 <div class="widget-body">
 <form class="form-horizontal" method="POST" action="/po" enctype="multipart/form-data">
+
+    @foreach ($buyer as $buyer1)
+    <input type="hidden" name="buyer" value="{{$buyer1->id}}">
+    @endforeach
     
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-md-3 form-control-label">No PO</label>

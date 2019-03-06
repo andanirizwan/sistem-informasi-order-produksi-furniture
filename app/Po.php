@@ -16,5 +16,9 @@ class Po extends Model
     {
         return $this->belongsTo('App\buyer', 'buyer_id', 'id');
     }
+    function user()
+    {
+        return $this->belongsTo('App\User', 'users_id', 'id');
+    }
     
 }

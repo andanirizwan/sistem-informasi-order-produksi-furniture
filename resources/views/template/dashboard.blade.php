@@ -94,8 +94,8 @@ Author: SAEROX
                                     <li><a rel="nofollow" href="{{ route('logout') }}" class="dropdown-item logout text-center"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                        ><i class="ti-power-off"></i></a></li>
+                                        {{-- {{ __('Logout') }} --}} <i class="ti-power-off"></i>
+                                        </a></li>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
@@ -138,7 +138,7 @@ Author: SAEROX
                         @elseif((Auth::user()->role == 'admin'))
                         <ul class="list-unstyled">
                         
-                            <li><a href="/po"><i class="la la-file"></i><span>PO</span></a></li>
+                            <li><a href="/po"><i class="la la-file-pdf-o"></i><span>PO</span></a></li>
                             <li><a href="/spk"><i class="la la-folder"></i><span>SPK</span></a></li>
                             <li><a href="/laporan"><i class="la la-calendar"></i><span>Laporan</span></a></li>
                             <li><a href="/invoice"><i class="la la-file"></i><span>Invoice</span></a></li>

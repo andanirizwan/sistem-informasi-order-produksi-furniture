@@ -21,4 +21,12 @@ class Invoice extends Model
     {
         return $this->belongsTo('App\Po', 'po_id', 'id');
     }
+    function spk()
+    {
+        return $this->belongsTo('App\Spk', 'spk_id', 'id');
+    }
+    function user()
+    {
+        return $this->belongsTo('App\User', 'users_id', 'id');
+    }
 }

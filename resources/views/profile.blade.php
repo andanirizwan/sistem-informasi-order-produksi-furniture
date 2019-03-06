@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-md-4">
         <div class="mt-5">
-                <img src="assets/img/avatar/avatar-01.jpg"  style="width: 120px;" class="avatar rounded-circle d-block mx-auto">
+                <img src="{{asset('assets/img/preloader-sidof.png')}}"  style="width: 120px;" class="avatar rounded-circle d-block mx-auto">
         </div>
             @foreach ($user as $user1)
                 <h3 class="text-center mt-3 mb-1">{{$user1->name}}</h3>

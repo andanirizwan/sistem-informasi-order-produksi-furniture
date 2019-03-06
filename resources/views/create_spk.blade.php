@@ -56,6 +56,12 @@
         </div>
     </div>
     <div class="form-group row d-flex align-items-center mb-5">
+            <label class="col-md-3 form-control-label">Produksi</label>
+            <div class="col-md-5">
+                <input type="date" name="produksi" class="form-control" required>
+            </div>
+        </div>
+    <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-md-3 form-control-label">Pengiriman</label>
         <div class="col-md-5">
             <input type="date" name="pengiriman" class="form-control" required>

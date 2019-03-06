@@ -22,7 +22,7 @@ class InvoiceController extends Controller
 
         if ($auth=='buyer') {
             $id= Auth::user()->id;
-            $invoice = Invoice::all()->where('buyer_id', '=', $id);
+            $invoice = Invoice::all()->where('users_id', '=', $id);
             return view('invoice', ['invoice'=>$invoice]);
         }
 
@@ -91,9 +91,9 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        $url = '/public/storage/po/'.$id;
-        $path= storage_path($url);
-        return response()->download($path);
+        $id= Auth::user()->id;
+        $invoice = Invoice::all()->where('users_id', '=', $id);
+        return view('detail_invoice', ['invoice'=>$invoice]);
     }
 
     /**
