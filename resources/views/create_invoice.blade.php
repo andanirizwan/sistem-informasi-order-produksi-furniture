@@ -23,10 +23,21 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-md-3 form-control-label">Buyer</label>
         <div class="col-md-5">
-            <select name="buyer_id" class="form-control">
+            <select name="user_id" class="form-control">
                 <option value="">pilih</option>
-                @foreach ($buyer as $buyer1)
-                    <option value="{{$buyer1->id}}">{{$buyer1->username}}</option>
+                @foreach ($user as $user1)
+                    <option value="{{$user1->id}}">{{$user1->name}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div> 
+    <div class="form-group row d-flex align-items-center mb-5">
+        <label class="col-md-3 form-control-label">SPk</label>
+        <div class="col-md-5">
+            <select name="spk_id" class="form-control">
+                <option value="">pilih</option>
+                @foreach ($spk as $spk1)
+                    <option value="{{$spk1->id}}">{{$spk1->no_spk}}</option>
                 @endforeach
             </select>
         </div>

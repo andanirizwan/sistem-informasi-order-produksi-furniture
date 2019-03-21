@@ -23,7 +23,7 @@
             
         <tr>
             <td>{{$no++}}</td>
-            <td>{{ $invoice1->buyer->username }}</td>           
+            <td>{{ $invoice1->user->name }}</td>           
             <td><a type="button" class="btn btn-info" href="invoice/{{ $invoice1->id }}">{{ $invoice1->file }} <i class="la la-hand-pointer-o"></i> </a> </td>
             <td>{{ $invoice1->po->pengiriman }}</td>
         </tr>

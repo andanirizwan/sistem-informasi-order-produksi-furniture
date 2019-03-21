@@ -57,11 +57,11 @@
                         <ul>
                             <li class="title">To.</li>
                             @foreach ($invoice as $invoice3)
-                                <li>{{$invoice3->buyer->username}}</li>
-                                <li>{{$invoice3->buyer->email}}</li>
-                                <li>{{$invoice3->buyer->perusahaan}}</li>
+                                <li>{{$invoice3->user->name}}</li>
+                                <li>{{$invoice3->user->email}}</li>
+                                {{-- <li>{{$invoice3->buyer->perusahaan}}</li>
                                 <li>{{$invoice3->buyer->alamat}}</li>
-                                <li>{{$invoice3->buyer->telepon}}</li>
+                                <li>{{$invoice3->buyer->telepon}}</li> --}}
                             @endforeach
                             
                         </ul>

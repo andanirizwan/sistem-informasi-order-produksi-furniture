@@ -27,7 +27,7 @@
         <tr>
             <td>{{$no++}}</td>
             <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#spk">{{ $laporan1->spk->no_spk }} <i class="la la-hand-pointer-o"></i></button></td>           
-            <td>{{ $laporan1->buyer->username }}</td>
+            <td>{{ $laporan1->user->name }}</td>
             <td>{{ $laporan1->pengiriman }}</td>
             <td><button class="btn btn-info">{{ $laporan1->status }}</button></td>
             @if (Auth::user()->role == 'exim')
@@ -72,7 +72,7 @@
                                     <tr>
                                         <td>1.</td>
                                         <td>{{ $laporan1->spk->no_spk}}</td>           
-                                        <td>{{ $laporan1->buyer->username}}</td>
+                                        <td>{{ $laporan1->user->name}}</td>
                                         <td>{{ $laporan1->spk->barang->nama}}</a></td>
                                         <td>{{ $laporan1->spk->qty}}</td> 
                                         <td>{{ $laporan1->spk->keterangan}}</td>

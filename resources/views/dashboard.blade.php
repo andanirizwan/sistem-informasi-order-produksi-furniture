@@ -55,7 +55,7 @@
         <div class="widget widget-23 bg-gradient-02 d-flex justify-content-center align-items-center">
             <div class="widget-body text-center">
                 <i class="la la-calendar"></i>
-                <div class="title">{{$po1->buyer->username}}</div>  
+                <div class="title">{{$po1->user->name}}</div>  
                 <div class="title">Delivery Report</div>
                 <div class="number">{{$po1->pengiriman}}</div>
 
@@ -113,7 +113,7 @@
                 <div class="widget widget-23 bg-gradient-02 d-flex justify-content-center align-items-center">
                     <div class="widget-body text-center">
                         <i class="la la-calendar"></i>
-                        <div class="title">{{$po3->buyer->username}}</div>  
+                        <div class="title">{{$po3->user->name}}</div>  
                         <div class="title">Delivery Report</div>
                         <div class="number">{{$po3->pengiriman}}</div>
         
@@ -168,7 +168,7 @@
                 <div class="widget widget-23 bg-gradient-02 d-flex justify-content-center align-items-center">
                     <div class="widget-body text-center">
                         <i class="la la-calendar"></i>
-                        <div class="title">{{$po3->buyer->username}}</div>  
+                        <div class="title">{{$po3->user->name}}</div>  
                         <div class="title">Delivery Report</div>
                         <div class="number">{{$po3->pengiriman}}</div>
         
@@ -249,7 +249,7 @@
                     <div class="widget widget-23 bg-gradient-02 d-flex justify-content-center align-items-center">
                         <div class="widget-body text-center">
                             <i class="la la-calendar"></i>
-                            <div class="title">{{$po3->buyer->username}}</div>  
+                            <div class="title">{{$po3->user->name}}</div>  
                             <div class="title">Delivery Report</div>
                             <div class="number">{{$po3->pengiriman}}</div>
             

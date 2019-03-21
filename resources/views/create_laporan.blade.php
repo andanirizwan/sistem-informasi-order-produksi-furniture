@@ -10,10 +10,10 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-md-3 form-control-label">Nama Buyer</label>
         <div class="col-md-5">
-            <select name="buyer_id" class="form-control">
+            <select name="user_id" class="form-control">
                 <option value="">pilih</option>
-                @foreach ($buyer as $buyer1)
-                    <option value="{{$buyer1->id}}">{{$buyer1->username}}</option>
+                @foreach ($user as $users1)
+                    <option value="{{$users1->id}}">{{$users1->name}}</option>
                 @endforeach
             </select>
         </div>

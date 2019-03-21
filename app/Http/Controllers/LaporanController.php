@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\User;
 use App\Laporan;
 use App\Spk;
 use App\Po;
@@ -23,7 +24,7 @@ class LaporanController extends Controller
 
         if ($auth=='buyer') {
             $id= Auth::user()->id;
-            $laporan = Laporan::all()->where('buyer_id', '=', $id);
+            $laporan = Laporan::all()->where('users_id', '=', $id);
             return view('laporan', ['laporan'=>$laporan]);
         }
         
@@ -42,10 +43,11 @@ class LaporanController extends Controller
         $auth=Auth::user()->role;
 
         if ($auth=='exim') {
+            $user = User::all()->where('role', '=' ,'buyer');
             $buyer = Buyer::all();
             $po = PO::all();
             $spk = Spk::all();
-            return view('create_laporan', ['buyer'=>$buyer,'po'=>$po,'spk'=>$spk,]);
+            return view('create_laporan', ['buyer'=>$buyer,'po'=>$po,'spk'=>$spk,'user'=>$user]);
         }
         
         return redirect('dashboard');
@@ -74,7 +76,7 @@ class LaporanController extends Controller
             $laporan = new Laporan;
             $laporan->pengiriman = $request->pengiriman;
             $laporan->status = $request->status;
-            $laporan->buyer_id = $request->buyer_id;
+            $laporan->users_id = $request->user_id;
             $laporan->po_id = $request->po_id;
             $laporan->spk_id = $request->spk_id;
 

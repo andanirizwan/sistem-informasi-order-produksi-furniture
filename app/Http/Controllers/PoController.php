@@ -76,7 +76,7 @@ class PoController extends Controller
             $po->no_po = $request->no_po;
             $po->pengiriman = $request->pengiriman;
             $po->file_po = $name_po;
-            $po->buyer_id = $request->buyer;
+            $po->users_id = Auth::user()->id;
             $po->save();
 
             return redirect('/po');
@@ -145,7 +145,7 @@ class PoController extends Controller
             $po->no_po = $request->no_po;
             $po->pengiriman = $request->pengiriman;
             $po->file_po = $name_po;
-            $po->buyer_id = Auth::user()->id;
+            $po->users_id = Auth::user()->id;
             $po->save();
 
             return redirect('/po');

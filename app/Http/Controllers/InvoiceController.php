@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\User;
 use App\Invoice;
 use App\buyer;
 use App\Po;
+use App\Spk;
 
 class InvoiceController extends Controller
 {
@@ -41,9 +43,11 @@ class InvoiceController extends Controller
         $auth=Auth::user()->role;
 
         if ($auth=='exim') {
+            $user = User::all()->where('role', '=' ,'buyer');
             $buyer = Buyer::all();
             $po = Po::all();
-            return view('create_invoice', ['buyer'=>$buyer,'po'=>$po]);
+            $spk = Spk::all();
+            return view('create_invoice', ['buyer'=>$buyer,'po'=>$po,'spk'=>$spk,'user'=>$user]);
         }
         
         return redirect('dashboard');
@@ -72,8 +76,10 @@ class InvoiceController extends Controller
             $invoice = new Invoice;
             $invoice->no_invoice = $request->no_invoice;
             $invoice->file = $name_invoice;
-            $invoice->buyer_id = $request->buyer_id;
+            $invoice->users_id = $request->user_id;
+            // $invoice->buyer_id = $request->buyer_id;
             $invoice->po_id = $request->po_id;
+            $invoice->spk_id = $request->spk_id;
             $invoice->save();
 
             return redirect('/invoice');

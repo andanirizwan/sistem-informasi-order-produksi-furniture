@@ -27,9 +27,9 @@ class DashboardController extends Controller
     {
 
         $id= Auth::user()->id;
-        $po = Po::all()->where('buyer_id', '=', $id);
+        $po = Po::all()->where('users_id', '=', $id);
         $po1 = Po::all();
-        $invoice = Invoice::all()->where('buyer_id', '=', $id);
+        $invoice = Invoice::all()->where('users_id', '=', $id);
         $invoice1 = Invoice::all();
         $barang = Barang::all();
         $spk = Spk::all();
