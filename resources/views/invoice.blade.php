@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th>NO</th>
-            <th>Buyer</th>
+            <th>Nama Buyer</th>
             <th>File</th>
             <th>Jadwal Pengiriman</th> 
         </tr>
